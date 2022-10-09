@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactDOM } from "react";
+import "./Header.css"
 
 function Header(){
     
@@ -7,7 +8,7 @@ function Header(){
 
     return(
         <>
-        <div style={{backgroundColor : "red"}}>
+        <div id="head">
         <h1>{title}</h1>
         </div>
         </>
