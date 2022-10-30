@@ -11,8 +11,10 @@ function Header(){
     return(
         <>
         <div id="head">
-        <h1>{title}</h1>
+            <h1>{title}</h1>
         </div>
+        <h2>Patra</h2>
+
         </>
     )
 }
