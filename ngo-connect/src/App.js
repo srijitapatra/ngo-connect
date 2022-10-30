@@ -1,11 +1,11 @@
 import './App.css';
-import Header from './components/header/Header';
+import NgoRegistration from './components/Ngo_reg/NgoRegistration';
 
 function App() {
    const name = "srijita";
 
   return (
-    <Header />
+    <NgoRegistration/>
   );
 }
 
