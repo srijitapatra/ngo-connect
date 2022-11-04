@@ -19,9 +19,9 @@ db.run("create table IF NOT EXISTS ngo_details (name VARCHAR(20), reg_no varchar
     console.log(err)
 });
 
-app.get("/", (req, res) => {
-    res.send("Hello world")
-})
+// app.get("/", (req, res) => {
+//     res.send("Hello world")
+// })
 
 app.post("/ngo-registration", function(req, res) {
     const data = req.body;
@@ -36,24 +36,33 @@ app.post("/ngo-registration", function(req, res) {
 });
 
 app.post('/ngo-login', function(req, res) {
-    const data = req.body
-    const queryString = `SELECT reg_no, password from ngo_details where reg_no = ${data.regNumber};`
+    const data = req.body;
+    console.log(data);
+    const queryString = `SELECT name, password from ngo_details where name= '${data.username}';`
 
-    let reg_no = ""
+    let username = ""
     let password = ""
     db.get(queryString, [], (err, row) => {
         if(err) {
             console.log(err)
             res.send(err)
+        } else {
+            if(row){
+                console.log(row);
+                username = row.name;
+                password = row.password;
+                if(data.username === username && data.password === password) {
+                    res.send("Successfully logged in");
+                }
+                else {
+                    res.send("Incorrect password");
+                }
+            } else {
+                res.send("User doesnot exist");
+            }
+           
         }
-        reg_no = row.reg_no
-        password = row.password
-        if(data.regNumber === reg_no && data.password === password) {
-            res.send(true)
-        }
-        else {
-            res.send(false)
-        }
+        
     })
 
 })
