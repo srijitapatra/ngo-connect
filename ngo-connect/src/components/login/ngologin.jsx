@@ -22,8 +22,8 @@ export default function NgoLogin(){
       <div class="form">
 
         <form onSubmit={handleSubmit}>
-          <input type="text" name='username' placeholder="&#xf007;  username"/>
-          <input type="password" name='password' id="password" placeholder="&#xf023;  password"/>
+          <input  required type="text" name='username' placeholder="&#xf007;  username"/>
+          <input required  type="password" name='password' id="password" placeholder="&#xf023;  password"/>
           {/* <i class="fas fa-eye" onclick="show()"></i> */}
           <br />
           <br />
