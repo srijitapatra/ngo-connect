@@ -54,9 +54,9 @@ function NgoRegistration(){
       <h1>NGO REGISTERATION</h1>
 
         <form id='form' class="container" onSubmit={handleSubmit}>
-        <input type="text" placeholder="&#xf007;  Name of the NGO"/>
+        <input type="text" name='name' placeholder="&#xf007;  Name of the NGO"/>
     
-        <input type="text" name="number" placeholder="&#xf023; Registeration Number"/>
+        <input type="text" name="regNumber" placeholder="&#xf023; Registeration Number"/>
         <input type="text" name="owner" placeholder="&#xf023; Owner"/>
         <input id="phone" type="text" name="phone" placeholder="&#xf023; Phone Number"/>
         <input type="text" name="location" placeholder="&#xf023;  Location of NGO"/>
