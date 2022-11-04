@@ -19,6 +19,10 @@ db.run("create table IF NOT EXISTS ngo_details (name VARCHAR(20), reg_no varchar
     console.log(err)
 });
 
+app.get("/", (req, res) => {
+    res.send("Hello world")
+})
+
 app.post("/ngo-registration", function(req, res) {
     const data = req.body;
     console.log(data.regNumber);
@@ -30,7 +34,30 @@ app.post("/ngo-registration", function(req, res) {
 
     res.send("data received");
 });
+
+app.post('/ngo-login', function(req, res) {
+    const data = req.body
+    const queryString = `SELECT reg_no, password from ngo_details where reg_no = ${data.regNumber};`
+
+    let reg_no = ""
+    let password = ""
+    db.get(queryString, [], (err, row) => {
+        if(err) {
+            console.log(err)
+            res.send(err)
+        }
+        reg_no = row.reg_no
+        password = row.password
+        if(data.regNumber === reg_no && data.password === password) {
+            res.send(true)
+        }
+        else {
+            res.send(false)
+        }
+    })
+
+})
 // db.close();
 app.listen(3000,function(req,res){
-    console.log("Port 3000");
+    console.log("Server running on Port 3000...");
 });
