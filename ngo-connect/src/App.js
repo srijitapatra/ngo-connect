@@ -1,11 +1,15 @@
 import './App.css';
-import NgoRegistration from './components/Ngo_reg/NgoRegistration';
+import NgoLogin from './components/login/ngologin';
+// import BlankProfile from './components/Feed/blank_profile';
+// import Home from './components/home/Home';
+// import NgoRegistration from './components/Ngo_reg/NgoRegistration';
 
 function App() {
-   const name = "srijita";
-
   return (
-    <NgoRegistration/>
+    // <NgoRegistration/>
+    // <Home />
+    // <BlankProfile />
+    <NgoLogin />
   );
 }
 
